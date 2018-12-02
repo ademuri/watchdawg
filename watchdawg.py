@@ -51,14 +51,14 @@ def can_load_page(url):
     try:
         urlopen(url, timeout=5)
         return True
-    except URLError as err: 
-        return False
     except HTTPError as err:
         if err.code == 401:
             return True
         else:
             # TODO: does HTTPError always mean we have connectivity?
             return False
+    except URLError as err: 
+        return False
 
 
 def has_internet():
