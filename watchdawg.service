@@ -1,0 +1,10 @@
+[Unit]
+Description=Watchdog to reboot the system if connectivity fails
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 ${INSTALL_DIR}/watchdawg.py --dry_run
+
+[Install]
+WantedBy=multi-user.target
